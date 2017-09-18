@@ -204,10 +204,10 @@
             $thumb.eq(_this.core.index).addClass('active');
         });
 
-        $thumb.on('click.lg touchend.lg', function() {
+        $thumb.on('mousedown.lg touchend.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
-
+                
                 // In IE9 and bellow touch does not support
                 // Go to slide if browser does not support css transitions
                 if ((_this.thumbClickable && !_this.core.lgBusy) || !_this.core.doCss()) {
@@ -215,6 +215,7 @@
                     _this.core.slide(_this.core.index, false, true, false);
                 }
             }, 50);
+            e.preventDefault();
         });
 
         _this.core.$el.on('onBeforeSlide.lg.tm', function() {
@@ -290,6 +291,7 @@
         var isDraging = false;
         var isMoved = false;
         var tempLeft = 0;
+        var selectedElement = $('.infowindow-background').length ? '.infowindow-background' : window; // workaround for Google Map Infowindow/Popup
 
         _this.$thumbOuter.addClass('lg-grab');
 
@@ -310,7 +312,7 @@
             }
         });
 
-        $(window).on('mousemove.lg.thumb', function(e) {
+        $(selectedElement).on('mousemove.lg.thumb', function(e) {
             if (isDraging) {
                 tempLeft = _this.left;
                 isMoved = true;
@@ -334,7 +336,7 @@
             }
         });
 
-        $(window).on('mouseup.lg.thumb', function() {
+        $(selectedElement).on('mouseup.lg.thumb', function() {
             if (isMoved) {
                 isMoved = false;
                 _this.$thumbOuter.removeClass('lg-dragging');
