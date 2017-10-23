@@ -1,4 +1,4 @@
-/*! lg-thumbnail - v1.1.0 - 2017-09-18
+/*! lg-thumbnail - v1.1.0 - 2017-10-23
 * http://sachinchoolur.github.io/lightGallery
 * Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 
@@ -179,7 +179,7 @@
                 thumbImg = thumb;
             }
 
-            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="lg-thumb-item" style="width:' + _this.core.s.thumbWidth + 'px; height: ' + _this.core.s.thumbHeight + '; margin-right: ' + _this.core.s.thumbMargin + 'px"><img src="' + thumbImg + '" /></div>';
+            thumbList += '<div data-vimeo-id="' + vimeoId + '" class="lg-thumb-item" style="width:' + _this.core.s.thumbWidth + 'px; height: ' + _this.core.s.thumbHeight + '; margin-right: ' + _this.core.s.thumbMargin + 'px" role="button" aria-label="image thumbnail" tabindex="0"><img src="' + thumbImg + '" /></div>';
             vimeoId = '';
         }
 
@@ -224,7 +224,7 @@
             $thumb.eq(_this.core.index).addClass('active');
         });
 
-        $thumb.on('mousedown.lg touchend.lg', function(e) {
+        $thumb.on('mousedown.lg touchend.lg keypress.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
                 
@@ -445,8 +445,8 @@
         var _this = this;
         if (_this.core.s.toogleThumb) {
             _this.core.$outer.addClass('lg-can-toggle');
-            _this.$thumbOuter.append('<span class="lg-toogle-thumb lg-icon"></span>');
-            _this.core.$outer.find('.lg-toogle-thumb').on('click.lg', function() {
+            _this.$thumbOuter.append('<span class="lg-toogle-thumb lg-icon" role="button" aria-label="toggle show thumbnails" tabindex="0"></span>');
+            _this.core.$outer.find('.lg-toogle-thumb').on('click.lg keypress.lg', function() {
                 _this.core.$outer.toggleClass('lg-thumb-open');
             });
         }
