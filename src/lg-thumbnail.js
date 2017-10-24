@@ -207,7 +207,7 @@
         $thumb.on('mousedown.lg touchend.lg keypress.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
-                
+                if (_$this.is(':focus')) { _this.thumbClickable = true; }
                 // In IE9 and bellow touch does not support
                 // Go to slide if browser does not support css transitions
                 if ((_this.thumbClickable && !_this.core.lgBusy) || !_this.core.doCss()) {

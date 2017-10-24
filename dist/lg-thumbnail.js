@@ -1,4 +1,4 @@
-/*! lg-thumbnail - v1.1.0 - 2017-10-23
+/*! lg-thumbnail - v1.1.0 - 2017-10-24
 * http://sachinchoolur.github.io/lightGallery
 * Copyright (c) 2017 Sachin N; Licensed GPLv3 */
 
@@ -227,7 +227,7 @@
         $thumb.on('mousedown.lg touchend.lg keypress.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
-                
+                if (_$this.is(':focus')) { _this.thumbClickable = true; }
                 // In IE9 and bellow touch does not support
                 // Go to slide if browser does not support css transitions
                 if ((_this.thumbClickable && !_this.core.lgBusy) || !_this.core.doCss()) {
