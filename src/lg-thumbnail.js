@@ -204,7 +204,7 @@
             $thumb.eq(_this.core.index).addClass('active');
         });
 
-        $thumb.on('mousedown.lg touchend.lg keypress.lg', function(e) {
+        $thumb.on('click.lg touchend.lg keypress.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
                 if (_$this.is(':focus')) { _this.thumbClickable = true; }
