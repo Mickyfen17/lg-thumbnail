@@ -1,6 +1,6 @@
-/*! lg-thumbnail - v1.1.0 - 2017-10-24
+/*! lg-thumbnail - v1.1.0 - 2018-10-10
 * http://sachinchoolur.github.io/lightGallery
-* Copyright (c) 2017 Sachin N; Licensed GPLv3 */
+* Copyright (c) 2018 Sachin N; Licensed GPLv3 */
 
 (function (root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -224,7 +224,7 @@
             $thumb.eq(_this.core.index).addClass('active');
         });
 
-        $thumb.on('mousedown.lg touchend.lg keypress.lg', function(e) {
+        $thumb.on('click.lg touchend.lg keypress.lg', function(e) {
             var _$this = $(this);
             setTimeout(function() {
                 if (_$this.is(':focus')) { _this.thumbClickable = true; }
